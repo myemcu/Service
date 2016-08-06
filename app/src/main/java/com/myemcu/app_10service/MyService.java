@@ -34,4 +34,16 @@ public class MyService extends Service {
         Log.d("MyService","--onStartCommand()被调用--");
         return super.onStartCommand(intent, flags, startId);
     }
+
+    @Override
+    public boolean onUnbind(Intent intent) { // 绑定
+        Log.d("MyService","--onUnbind()被调用--");
+        return super.onUnbind(intent);
+    }
+
+    @Override
+    public void onRebind(Intent intent) { // 解绑
+        Log.d("MyService","--onRebind()被调用--");
+        super.onRebind(intent);
+    }
 }

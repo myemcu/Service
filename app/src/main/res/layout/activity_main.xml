@@ -37,7 +37,32 @@
                 android:layout_weight="1"
                 android:id="@+id/stop"/>
         </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="绑定Service"
+                android:textSize="8pt"
+                android:layout_weight="1"
+                android:id="@+id/bind"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="解绑Service"
+                android:textSize="8pt"
+                android:layout_weight="1"
+                android:id="@+id/unBind"/>
+
+        </TableRow>
     </TableLayout>
+
+
 
 
 </LinearLayout>
