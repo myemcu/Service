@@ -64,6 +64,7 @@ public class MyService extends Service {
     public void onDestroy() {
         Log.d("MyService","--onDestroy()被调用--");
         super.onDestroy();
+        quit=true;  // 解绑(销毁)后，子线程循环将退出，数据不再更新。
     }
 
     @Override
