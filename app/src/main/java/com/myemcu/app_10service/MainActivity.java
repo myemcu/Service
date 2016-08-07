@@ -1,5 +1,7 @@
 package com.myemcu.app_10service;
 
+import com.myemcu.app_10service.MyService.MyBinder; // Alt+Enter(选择local package)
+
 import android.app.Service;
 import android.content.ComponentName;
 import android.content.Intent;
@@ -10,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
     private Button mStop;
     private Button mBind;
     private Button mUnbind;
+    private Button mGetData;
+
+    private MyBinder myBinder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
 
         mBind = (Button) findViewById(R.id.bind);
         mUnbind = (Button) findViewById(R.id.unBind);
+
+        mGetData = (Button) findViewById(R.id.getData);
 
         final Intent intent = new Intent();
         intent.setAction("com.myemcu.app_10service.MyService");
@@ -59,12 +67,21 @@ public class MainActivity extends AppCompatActivity {
                 unbindService(conn);
             }
         });
+
+        mGetData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this,"后台值："+myBinder.getCount(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private ServiceConnection conn = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             Log.d("MyService","--onServiceConnected()被调用--");
+
+            myBinder=(MyBinder)service;
         }
 
         @Override

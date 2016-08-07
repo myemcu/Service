@@ -11,7 +11,7 @@
         android:textSize="25sp"
         android:layout_gravity="center_horizontal"
         android:text="Android系统服务应用"
-        android:textColor="#e51c1c"/>
+        android:textColor="#0e20e3"/>
 
     <TableLayout
         android:layout_width="match_parent"
@@ -62,7 +62,12 @@
         </TableRow>
     </TableLayout>
 
-
-
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="获取数据"
+        android:textSize="8pt"
+        android:id="@+id/getData"
+        android:textColor="#078552"/>
 
 </LinearLayout>
